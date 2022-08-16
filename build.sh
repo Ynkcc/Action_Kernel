@@ -1,13 +1,13 @@
 echo "===================Setup Export========================="
 export KERNEL_PATH=$PWD
-export CLANG_PATH=~/proton-clang
+export CLANG_PATH=~/prelude-clang
 export PATH=${CLANG_PATH}/bin:${PATH}
 export CLANG_TRIPLE=aarch64-linux-gnu-
 export ARCH=arm64
 export SUBARCH=arm64
 
 echo "===================Setup Environment==================="
-git clone --depth=1 https://github.com/kdrag0n/proton-clang $CLANG_PATH
+git clone --depth=1 https://gitlab.com/jjpprrrr/prelude-clang.git $CLANG_PATH
 sh -c "$(curl -sSL https://github.com/akhilnarang/scripts/raw/master/setup/android_build_env.sh/)"
 
 echo "=========================Clean========================="

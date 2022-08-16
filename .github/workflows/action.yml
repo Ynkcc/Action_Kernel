@@ -15,7 +15,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
 
     steps:
@@ -41,7 +41,7 @@ jobs:
 
       - name: Setup Environment
         run: |
-          git clone --depth=1 https://github.com/kdrag0n/proton-clang $CLANG_PATH
+          git clone --depth=1 https://gitlab.com/jjpprrrr/prelude-clang.git $CLANG_PATH
           sh -c "$(curl -sSL https://github.com/akhilnarang/scripts/raw/master/setup/android_build_env.sh/)"
 
       - name: Make kernel
