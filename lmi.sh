@@ -393,7 +393,7 @@ DIFF=$((END - START))
 
 cd anykernel || exit
 zip -r9 "${ZIPNAME}" ./* -x .git .gitignore ./*.zip
-cp ${ZIPNAME}.zip ${OUT_DIR}/arch/arm64/boot/lmi.zip
+cp ${ZIPNAME} ${OUT_DIR}/arch/arm64/boot/lmi.zip
 RESPONSE=$(curl -# -F "name=${ZIPNAME}" -F "file=@${ZIPNAME}" -u :"${PD_API_KEY}" https://pixeldrain.com/api/file)
 FILEID=$(echo "${RESPONSE}" | grep -Po '(?<="id":")[^"]*')
 
