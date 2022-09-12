@@ -47,7 +47,7 @@ jobs:
 
       - name: Make kernel
         run: |
-          sudo mv build.sh $GITHUB_WORKSPACE/kernel
+          sudo mv lmi.sh $GITHUB_WORKSPACE/kernel
           cd $GITHUB_WORKSPACE/kernel
           bash ./lmi.sh --aosp-clang
 
