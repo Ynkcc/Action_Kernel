@@ -55,5 +55,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "kernel/out/arch/arm64/boot/lmi.zip"
-          tag: "${{ steps.config.outputs.kernel_name }}"
+          tag: $(date "+%d%H%M")"${{ steps.config.outputs.kernel_name }}"
           token: ${{ secrets.GITHUB_TOKEN }}
