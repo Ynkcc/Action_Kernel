@@ -54,6 +54,6 @@ jobs:
       - name: Upload to Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "kernel/out/arch/arm64/boot/Image.gz-dtb"
+          artifacts: "kernel/out/arch/arm64/boot/lmi.zip"
           tag: "${{ steps.config.outputs.kernel_name }}"
           token: ${{ secrets.GITHUB_TOKEN }}
