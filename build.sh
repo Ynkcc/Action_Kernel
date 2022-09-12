@@ -7,6 +7,7 @@ export ARCH=arm64
 export SUBARCH=arm64
 
 echo "===================Setup Environment==================="
+apt install clang
 git clone --depth=1 https://github.com/kdrag0n/proton-clang $CLANG_PATH
 sh -c "$(curl -sSL https://github.com/akhilnarang/scripts/raw/master/setup/android_build_env.sh/)"
 
