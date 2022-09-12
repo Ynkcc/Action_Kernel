@@ -5,7 +5,7 @@ export PATH=${CLANG_PATH}/bin:${PATH}
 export CLANG_TRIPLE=aarch64-linux-gnu-
 export ARCH=arm64
 export SUBARCH=arm64
-
+echo'ok'
 echo "===================Setup Environment==================="
 apt install clang
 git clone --depth=1 https://github.com/kdrag0n/proton-clang $CLANG_PATH
