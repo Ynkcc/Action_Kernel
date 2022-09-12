@@ -48,7 +48,7 @@ jobs:
         run: |
           sudo mv build.sh $GITHUB_WORKSPACE/kernel
           cd $GITHUB_WORKSPACE/kernel
-          bash ./build.sh
+          bash ./lmi.sh
 
       - name: Upload to Release
         uses: ncipollo/release-action@v1
