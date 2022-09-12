@@ -26,6 +26,7 @@ DEVICE=lmi
 KBUILD_BUILD_USER=UtsavTheCunt
 KBUILD_BUILD_HOST=CuntsSpace
 HOME=$PWD
+PD_API_KEY=01bb9656-2704-4347-8d31-c7635f49e0f2
 
 # Clone compiler
 if [[ "$@" =~ "aosp-clang"* ]]; then
@@ -392,15 +393,13 @@ DIFF=$((END - START))
 
 cd anykernel || exit
 zip -r9 "${ZIPNAME}" ./* -x .git .gitignore ./*.zip
-
+cp ${ZIPNAME}.zip ${OUT_DIR}/arch/arm64/boot/lmi.zip
 RESPONSE=$(curl -# -F "name=${ZIPNAME}" -F "file=@${ZIPNAME}" -u :"${PD_API_KEY}" https://pixeldrain.com/api/file)
 FILEID=$(echo "${RESPONSE}" | grep -Po '(?<="id":")[^"]*')
 
 CHECKER=$(find ./ -maxdepth 1 -type f -name "${ZIPNAME}" -printf "%s\n")
 if (($((CHECKER / 1048576)) > 5)); then
-    curl -s -X POST https://api.telegram.org/bot"${BOT_API_KEY}"/sendMessage -d text="✅ Kernel compiled successfully in $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds for ${DEVICE}" -d chat_id="${CI_CHANNEL_ID}" -d parse_mode=HTML
-    curl -s -X POST https://api.telegram.org/bot"${BOT_API_KEY}"/sendMessage -d text="Kernel build link: https://pixeldrain.com/u/$FILEID" -d chat_id="${CI_CHANNEL_ID}" -d parse_mode=HTML
-    #    curl -F chat_id="${CI_CHANNEL_ID}" -F document=@"$(pwd)/${ZIPNAME}" https://api.telegram.org/bot"${BOT_API_KEY}"/sendDocument
+	echo"假装发了通知"
 else
     tg_post_error
 fi
